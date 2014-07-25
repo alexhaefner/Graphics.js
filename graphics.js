@@ -12,7 +12,7 @@ function Texture() {
 }
 
 function RenderSequence(scene, glContext, name, func) {
-    this.func = func;
+    this.func = func.bind(this);
     this.name = name;
     var private = {};
     var that = this;
@@ -71,7 +71,7 @@ function RenderSequence(scene, glContext, name, func) {
             newDate = new Date();
             var delta = oldDate == null ? 0 : timeSinceEpoch(newDate) - timeSinceEpoch(oldDate);
             totalElapsedTime += delta;
-            func({timeDelta: delta, totalElapsedTime: totalElapsedTime, context: glContext});
+            that.func({timeDelta: delta, totalElapsedTime: totalElapsedTime, context: glContext});
             oldDate = newDate;
             window.requestAnimationFrame(that.funcWrapper);
         }
