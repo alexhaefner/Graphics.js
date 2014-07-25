@@ -348,8 +348,8 @@ function Graphics3D() {
             return;
         }
         this.resizeCanvas({width: canvas.width, height:canvas.height});
-        this.gl.enable(graphics.gl.DEPTH_TEST);
-        this.gl.depthFunc(graphics.gl.LEQUAL);
+        this.gl.enable(this.gl.DEPTH_TEST);
+        this.gl.depthFunc(this.gl.LEQUAL);
     }
     this.resizeCanvas = function(size) {
         var pixelRatio = window.devicePixelRatio || 1.0;
