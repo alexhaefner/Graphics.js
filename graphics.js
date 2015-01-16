@@ -210,7 +210,7 @@ function Scene (glContext) {
             private.notifyTextureReady(name);
         }
         img.onerror = function(e) {
-            console.log(error);
+            console.log(e);
         }
         img.src = url;
         return returnValue;
